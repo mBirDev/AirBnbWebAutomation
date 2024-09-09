@@ -1,0 +1,13 @@
+# Ignore the .idea directory
+.idea/
+# Ignore the target directory
+target/
+
+# Ignore all .properties files
+*.properties
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
