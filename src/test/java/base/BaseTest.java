@@ -39,7 +39,7 @@ public class BaseTest {
         driver.get(ConfigurationManager.getProperty("siteURl"));
 
     }
-    @AfterClass
+//    @AfterClass
     public void tearDown(){
         driver.quit();
     }
