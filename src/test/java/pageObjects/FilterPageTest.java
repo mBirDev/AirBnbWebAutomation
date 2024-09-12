@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import util.ConfigurationManager;
 
 public class FilterPageTest extends BaseTest {
     protected FilterPage filterPage;
@@ -26,7 +27,7 @@ public class FilterPageTest extends BaseTest {
     public void testFilter(String placeType, int maxPrice, String amenity, String bookingOption, String propertyType) {
         filterPage.applyFilter(placeType, maxPrice, amenity, bookingOption, propertyType);
         String actualMessage = filterPage.displayMessage();
-        String expectedMessage = "Continue exploring trending homes";
-        Assert.assertEquals(actualMessage,expectedMessage);
+        Assert.assertEquals(actualMessage,
+                ConfigurationManager.getProperty("expectedMessage"));
     }
 }

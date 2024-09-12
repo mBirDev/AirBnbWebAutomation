@@ -60,7 +60,7 @@ public class SearchPage extends AirBnbWebPage {
         clickDate(checkOutDate);
     }
 
-    public String getElementText(WebElement element) {
+    private String getElementText(WebElement element) {
         waitForElementToBeVisible(element);
         return element.getText();
     }
@@ -79,7 +79,7 @@ public class SearchPage extends AirBnbWebPage {
     }
 
 
-    public void clickDate(WebElement dateElement) {
+    private void clickDate(WebElement dateElement) {
         try {
             if (dateElement.isDisplayed()) {
                 dateElement.click();

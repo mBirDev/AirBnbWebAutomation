@@ -53,40 +53,40 @@ public class FilterPage extends AirBnbWebPage {
         clickElement(showResults);
     }
 
-    public void selectPlaceType(String placeType) {
+    private void selectPlaceType(String placeType) {
         WebElement typeOption = findElementByText(typeOfPlaceButton, placeType);
         if (typeOption != null) {
             clickElement(typeOption);
         }
     }
 
-    public void selectAmenity(String amenity) {
+    private void selectAmenity(String amenity) {
         WebElement amenityOption = findElementByText(amenitiesOptions, amenity);
         if (amenityOption != null) {
             clickElement(amenityOption);
         }
     }
 
-    public void selectBookingOption(String bookingOption) {
+    private void selectBookingOption(String bookingOption) {
         WebElement option = findElementByText(bookingOptions, bookingOption);
         if (option != null) {
             clickElement(option);
         }
     }
-    public void selectPropertyType(String propertyType) {
+    private void selectPropertyType(String propertyType) {
         WebElement option = findElementByText(propertyTypeOptions, propertyType);
         if (option != null) {
             clickElement(option);
         }
     }
 
-    public void enterPriceRange(int maxPrice) {
+    private void enterPriceRange(int maxPrice) {
         maxPriceRangeInputField.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
         clickElement(maxPriceRangeInputField);
         maxPriceRangeInputField.sendKeys(String.valueOf(maxPrice));
     }
 
-    public void selectRoomsAndBeds() {
+    private void selectRoomsAndBeds() {
         for (int i = 0; i < roomsAndBedsOption.size(); i++) {
             if (i % 2 != 0) {
                 clickElement(roomsAndBedsOption.get(i));

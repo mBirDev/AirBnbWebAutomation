@@ -3,14 +3,11 @@ package org.pageObjects;
 import org.base.AirBnbWebPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 public class BookingPage extends AirBnbWebPage {
     private final static int IMAGE_INDEX_VALUE = 2;
-    private final static int WINDOW_INDEX_VALUE = 1;
     private final static int NUMBER_OF_GUESTS_TO_BE_ADDED = 2;
     public BookingPage(WebDriver driver) {
         super(driver);
@@ -46,6 +43,9 @@ public class BookingPage extends AirBnbWebPage {
     @FindBy(xpath = "//button[contains(text(), 'Close')]")
     protected WebElement closeGuestPickerButton;
 
+    @FindBy(xpath = "(//span[contains(text(), 'Reserve')])[last()]")
+    protected WebElement getReserveBookingMessage;
+
     private void selectCategoryByName(String categoryName) {
         waitForVisibilityOfElements(categoryLabels);
         Optional<WebElement> categoryElement = categoryLabels.stream()
@@ -71,13 +71,6 @@ public class BookingPage extends AirBnbWebPage {
     }
     private boolean isIndexValid(int index) {
         return index >= 0 && index < imageElements.size();
-    }
-    private void switchToNewWindow() {
-        Set<String> handles = driver.getWindowHandles();
-        List<String> handlesList = new ArrayList<>(handles);
-        if (handlesList.size() > 1) {
-            driver.switchTo().window(handlesList.get(WINDOW_INDEX_VALUE));
-        }
     }
     public void closeCancelPopupIfPresent(){
         try{
@@ -123,6 +116,9 @@ public class BookingPage extends AirBnbWebPage {
             }
         }
         clickElement(closeGuestPickerButton);
+    }
+    public String displayBookingSuccessMessage(){
+        return getReserveBookingMessage.getText();
     }
 }
 
