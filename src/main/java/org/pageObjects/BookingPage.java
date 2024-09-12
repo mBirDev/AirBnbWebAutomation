@@ -3,10 +3,8 @@ package org.pageObjects;
 import org.base.AirBnbWebPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 public class BookingPage extends AirBnbWebPage {
     private final static int IMAGE_INDEX_VALUE = 2;
