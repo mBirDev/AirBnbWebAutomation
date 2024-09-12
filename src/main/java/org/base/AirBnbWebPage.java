@@ -1,5 +1,6 @@
 package org.base;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,7 +10,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class AirBnbWebPage {
-    public static final int SHORT_WAIT_TIME = 3;
+    public static final int SHORT_WAIT_TIME = 2;
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected Actions action;
@@ -39,6 +40,10 @@ public class AirBnbWebPage {
     }
     public void clickElement(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
+    public void scrollToElement(WebElement element) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
 }
